@@ -3,14 +3,29 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import {HttpClientModule} from '@angular/common/http';
+import { ViewComponent } from './crud/view';
+import { CreateComponent } from './crud/create/create.component';
+import { UpdateComponent } from './crud/update/update.component';
+import { ReadComponent } from './crud/read/read.component';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ViewComponent,
+    CreateComponent,
+    UpdateComponent,
+    ReadComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    HttpClientModule,
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
