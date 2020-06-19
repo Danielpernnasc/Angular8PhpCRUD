@@ -8,8 +8,8 @@ declare var $;
   styleUrls: ['./view.component.css']
 })
 export class ViewComponent implements OnInit {
-  public products: any = [];
-  @ViewChild('productsTable', {static: true}) Table;
+  public produtos: any = [];
+  @ViewChild('TabelaProdutos', {static: true}) Table;
   public dataTable: any;
   constructor(private crudService: CrudService, private router: Router) { }
 
@@ -23,11 +23,11 @@ export class ViewComponent implements OnInit {
     }
     this.crudService.getProducts().subscribe(
         productData => {
-          this.products = productData;
+          this.produtos = productData;
 
           this.dataTable = $(this.Table.nativeElement);
           setTimeout(()=>{
-            this.dataTable.DataTable();
+            this.dataTable.DataTables();
           }, 2000);
           }, (err)=>{
               }, ()=>{

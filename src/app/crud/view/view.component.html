@@ -2,37 +2,45 @@
     <div class="row">
         <div class="col-12 col-lg-12 col-md-12 col-sm-12 col-xl-12 col-xs-12">
             <button class="btn btn-sucess" (click)="getNavigation('create', '')">
-                Create New Product
+              Criar um Novo Produto
             </button>
         </div>
     </div>
     <br>
     <div class="row">
         <div class="col-12 col-lg-12 col-md-12 col-xl-12 col-xs-12">
-            <table #productsTable class="display" style="width:100%">
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Name</th>
-                        <th>Description</th>
-                        <th>Price</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-            </table>
-            <tbody>
-                <tr *ngFor="let product of products; let i =index;">
-                    <td>{{i + 1}}</td>
-                    <td>{{product.p_name}}</td>
-                    <td>{{product.p_description}}</td>
-                    <td>${{product.p_price}}</td>
-                    <td>
-                        <button type="button" class="btn btn-success" (click)="getNavigation('view', product.p_id)">View</button>
-                        <button type="button" class="btn btn-warning" (click)="getNavigation('update', product.p_id)">Edit</button>
-                        <button type="button" class="btn btn-danger" (click)="deleteProduct(product.p_id)">Delete</button>
-                    </td>
-                </tr>
-            </tbody>
+            <div class="row display" #TabelaProdutos>
+                <div class="col-12">
+                    <div class="row">
+                        <div class="col-3">Nome</div>
+                        <div class="col-3">Descrição</div>
+                        <div class="col-3">Preço</div>
+                        <div class="col-3">Ação</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="row" *ngFor="let product of produtos; let i =index;">
+                        <div class="col-3">{{i + 1}}</div>
+                        <div class="col-3">{{product.p_name}}</div>
+                        <div class="col-3">{{product.p_description}}</div>
+                        <div class="col-3">R${{product.p_price}}</div>
+                        <div class="row">
+                            <div class="col-4">
+                                <button type="button" class="btn btn-success" (click)="getNavigation('view', product.p_id)">Visualizar</button>
+                            </div>
+                            <div class="col-4">
+                                <button type="button" class="btn btn-warning" (click)="getNavigation('update', product.p_id)">Editar</button>
+                            </div>
+                            <div class="col-4">
+                                <button type="button" class="btn btn-danger" (click)="deleteProduct(product.p_id)">Apagar</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
         </div>
     </div>
 </div>
